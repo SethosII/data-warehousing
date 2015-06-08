@@ -1,0 +1,201 @@
+\documentclass[12pt,a4paper,listof=totocnumbered]{scrartcl}
+\usepackage{lscape}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage[right]{eurosym}
+\usepackage[printonlyused]{acronym}
+\usepackage{subfig}
+\usepackage{floatflt}
+%\usepackage{float}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{colortbl}
+\usepackage{paralist}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage[right]{eurosym}
+%\usepackage{picins}
+\usepackage[subfigure,titles]{tocloft}
+\usepackage[pdfpagelabels=true]{hyperref}
+\usepackage{pdfpages} 
+\usepackage{hyperref}
+%\usepackage{minted}
+\usepackage{listings}
+\usepackage{fancyvrb}
+
+\lstset{basicstyle=\footnotesize, captionpos=b, breaklines=true, showstringspaces=false, tabsize=2, frame=lines, numbers=left, numberstyle=\tiny, xleftmargin=2em, framexleftmargin=2em}
+\makeatletter
+\def\l@lstlisting#1#2{\@dottedtocline{1}{0em}{1em}{\hspace{1,5em} Listing #1}{#2}}
+\makeatother
+
+\DeclareNewTOC[%
+ type=formel,
+ name={Formel},%
+ hang=5em,%
+ listname={Formelverzeichnis}
+]{for}
+
+\newcommand*{\formelentry}[1]{%
+ \addcontentsline{for}{formel}{\protect\numberline{Formel~\theequation} #1}%
+}
+\geometry{a4paper, top=25mm, left=25mm, right=25mm, bottom=35mm, headsep=10mm, footskip=12mm}
+
+
+\hypersetup{unicode=true, pdftoolbar=true, pdfmenubar=true, pdffitwindow=false, pdfstartview={FitH},
+	pdftitle={Projekt zur Lehrveranstaltung Data Warehousing},
+	pdfauthor={Henry Glück, Paul Jaehne},
+	pdfsubject={},
+	pdfcreator={\LaTeX\ with package \flqq hyperref\frqq},
+	pdfproducer={},
+	pdfkeywords={},
+	pdfnewwindow=true,
+	colorlinks=true,linkcolor=black,citecolor=black,filecolor=magenta,urlcolor=black}
+
+\begin{document}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  keepspaces=true,
+  frame = none,
+  aboveskip=10pt,
+  belowskip=10pt
+  }
+
+
+\titlespacing{\section}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+% Kopf- und Fusszeile
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\leftmark}{\rightmark}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{\thesection\space\contentsname}
+\lfoot{}
+\cfoot{}
+\rfoot{\ \linebreak \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Vorspann
+\renewcommand{\thesection}{}
+\renewcommand{\theHsection}{}
+%\pagenumbering{Roman}
+
+%----------------------------------------------------------------------------------------------------------
+% Titelseite
+%----------------------------------------------------------------------------------------------------------
+\thispagestyle{empty}
+\begin{center}
+	
+	\vspace*{2cm}
+	\huge
+	Hochschule für Technik, Wirtschaft und Kultur \\
+	\vspace*{1cm}
+	\large
+	Fakultät Informatik, Mathematik und Naturwissenschaften\\
+	
+	
+	\vspace*{2cm}
+	\textbf{Projekt zur Lehrveranstaltung Data Warehousing}\\
+	\vspace*{1cm}
+	\large
+	Betriebswirtschaftliche Analyse und Entwurf des Data Warehouse\\
+	\vspace*{2cm}
+	\textbf{Datum:} \today \\	
+	\vspace*{2cm}
+	\vfill
+	\normalsize
+	\newcolumntype{x}[1]{>{\raggedleft\arraybackslash\hspace{0pt}}p{#1}}
+	\begin{tabular}{x{3.5cm}p{7.5cm}}
+		\rule{0mm}{3ex}\textbf{Verfasser:} & Paul Jaehne und Henry Glück \\ 
+
+	\end{tabular} 
+\end{center}
+\pagebreak
+
+
+% ----------------------------------------------------------------------------------------------------------
+% Verzeichnisse
+% ----------------------------------------------------------------------------------------------------------
+% TODO Typ vor Nummer
+
+\setcounter{tocdepth}{2}
+
+\renewcommand{\cfttabpresnum}{Tabelle }
+\renewcommand{\cftfigpresnum}{Abbildung }
+\settowidth{\cfttabnumwidth}{Abbildung 10\quad}
+\settowidth{\cftfignumwidth}{Abbildung 10\quad}
+
+\titlespacing{\section}{0pt}{12pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+\singlespacing
+
+\rhead{INHALTSVERZEICHNIS}
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\phantomsection
+%\addcontentsline{toc}{section}{\texorpdfstring{\hspace{1.4em}Inhaltsverzeichnis}{Inhaltsverzeichnis}}
+\addtocounter{section}{1}
+\tableofcontents
+\pagebreak
+\rhead{VERZEICHNISSE}
+\pagebreak
+
+%--------------
+% Abkürzungen
+%\input{Abkuerzungen.tex}
+
+\pagebreak
+
+
+
+%----------------------------------------------------------------------------------------------------------
+% Inhalt
+%----------------------------------------------------------------------------------------------------------
+% Abstände Überschrift
+\titlespacing{\section}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing{\subsection}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing{\subsubsection}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+% Kopfzeile
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\subsectionmark}[1]{}
+\renewcommand{\subsubsectionmark}[1]{}
+\lhead{}
+\rhead{\rightmark}
+
+\onehalfspacing
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\theHsection}{\arabic{section}}
+\setcounter{section}{0}
+%\pagenumbering{arabic}
+%\setcounter{page}{1}
+
+
+%----------------------------------
+% Phase1
+%----------------------------------
+\input{phase1/phase1.tex}
+
+%----------------------------------
+% Phase2
+%----------------------------------
+\input{phase2/phase2.tex}
+
+
+
+
+
+
+
+
+
+\end{document}
