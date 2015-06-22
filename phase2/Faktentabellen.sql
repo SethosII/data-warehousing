@@ -1,8 +1,8 @@
 CREATE TABLE Bestellungen (
-  AnzahlBestellungen INT NULL,
-  Umsatz DECIMAL NULL,
+  AnzahlBestellungen INT,
+  Umsatz DECIMAL ,
   AltersgruppeID INT,
-  ProduktID INT ,
+  ProduktID CHAR(50) ,
   Geschlecht CHAR(1) ,
   Newsletter BIT ,
   MonatID INT ,
@@ -16,10 +16,10 @@ CREATE TABLE Bestellungen (
 
  
   CREATE TABLE CrossSells (
-  Anzahl INT NULL,
-  Produkt1ID INT,
+  Anzahl INT ,
+  Produkt1ID CHAR(50),
   MonatID INT,
-  Produkt2ID INT,
+  Produkt2ID CHAR(50),
   PRIMARY KEY (Produkt1ID, MonatID, Produkt2ID),
   CONSTRAINT fk_CrossSells_Produkt1 FOREIGN KEY (Produkt1ID) REFERENCES DimProdukt (ProduktID) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT fk_CrossSells_Produkt2 FOREIGN KEY (Produkt2ID) REFERENCES DimProdukt (ProduktID) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -27,10 +27,10 @@ CREATE TABLE Bestellungen (
   )
   
   CREATE TABLE Retouren (
-  AnzahlRetouren INT NULL,
-  Umsatz DECIMAL NULL,
+  AnzahlRetouren INT ,
+  Umsatz DECIMAL,
   AltersgruppeID INT ,
-  ProduktID INT,
+  ProduktID CHAR(50),
   Geschlecht CHAR(1),
   Grund CHAR(50),
   MonatID INT,
