@@ -1,7 +1,7 @@
 --Dimensionstabellen
  CREATE TABLE DimAlter (
   AltersgruppeID INT IDENTITY(1,1) PRIMARY KEY,
-  Bezeichnung CHAR(100) UNIQUE,
+  Bezeichnung CHAR(100),
   Anzahl INT )
 
 CREATE TABLE DimProdukt (
