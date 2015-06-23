@@ -1,3 +1,5 @@
+-- Anlegen der Faktentabellen
+
 CREATE TABLE Bestellungen (
   AnzahlBestellungen INT,
   Umsatz DECIMAL ,
