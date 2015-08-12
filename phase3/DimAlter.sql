@@ -16,7 +16,7 @@ where b.age < 20)
 INSERT INTO [Cubes].[dbo].[DimAlter](Bezeichnung, Anzahl)
 Values
 (
-'>=20 & < 30', (select isnull(sum(b.anzahl), 0)?
+'>=20 & < 30', (select isnull(sum(b.anzahl), 0)
 from
 	(select a.age, count(a.riskID) 'anzahl' 
 	from
