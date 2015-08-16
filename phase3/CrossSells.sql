@@ -60,28 +60,59 @@ WHILE @@FETCH_STATUS = 0
 					WHILE @@FETCH_STATUS = 0
 					BEGIN
 						--PRINT 'KOMBINATION: '+@mainIWAN+' <---> '+@innerIWAN
+						
+						-- suche nach main-inner-Konstellation
 						SET @crossSellMatches =(select count(*) 
 												from [Cubes].[dbo].CrossSells where
-													((Produkt1ID = @mainIWAN and Produkt2ID=@innerIWAN) or (Produkt2ID = @mainIWAN and Produkt1ID=@innerIWAN)) 
-													and (ZeitID = @dimZeitID)
+													((Produkt1ID = @mainIWAN and Produkt2ID=@innerIWAN))
 												)
-						IF @crossSellMatches < 1
+						
+						IF @crossSellMatches > 0
 							BEGIN
-
-							    PRINT 'lege neu an: '+@mainIWAN+' - '+@innerIWAN
-								insert into [Cubes].[dbo].[CrossSells](Produkt1ID,Produkt2ID,ZeitID,Anzahl)
-								values
-									(@mainIWAN,@innerIWAN, @dimZeitID,1)
+								-- suche nach main-inner-zeit-Konstellation
+								SET @crossSellMatches =(select count(*) 
+														from [Cubes].[dbo].CrossSells where
+															((Produkt1ID = @mainIWAN and Produkt2ID=@innerIWAN) and ZeitID = @dimZeitID)												)
+						
+								IF @crossSellMatches > 0
+									BEGIN
+										print 'Update: '+@mainIWAN+' - '+@innerIWAN
+										update [Cubes].[dbo].[CrossSells] set Anzahl = Anzahl + 1
+										where (Produkt1ID = @mainIWAN and Produkt2ID=@innerIWAN) and 
+											  (ZeitID = @dimZeitID)
+									END
+								ELSE
+									BEGIN
+										PRINT 'lege neu an: '+@mainIWAN+' - '+@innerIWAN
+										insert into [Cubes].[dbo].[CrossSells](Produkt1ID,Produkt2ID,ZeitID,Anzahl)
+										values
+											(@mainIWAN,@innerIWAN, @dimZeitID,1)	
+									END
 							END
 						ELSE
 							BEGIN
-								print 'Update: '+@mainIWAN+' - '+@innerIWAN
-								update [Cubes].[dbo].[CrossSells] set Anzahl = Anzahl + 1
-								where ((Produkt1ID = @mainIWAN and Produkt2ID=@innerIWAN) or 
-								       (Produkt2ID = @mainIWAN and Produkt1ID=@innerIWAN)) and 
-										(ZeitID = @dimZeitID)
+								-- suche nach inner-main-zeit-Konstellation
+								SET @crossSellMatches =(select count(*) 
+														from [Cubes].[dbo].CrossSells where
+															((Produkt2ID = @mainIWAN and Produkt1ID=@innerIWAN) and ZeitID = @dimZeitID)												)
+						
+								IF @crossSellMatches > 0
+									BEGIN
+										print 'Update: '+@mainIWAN+' - '+@innerIWAN
+										update [Cubes].[dbo].[CrossSells] set Anzahl = Anzahl + 1
+										where (Produkt2ID = @mainIWAN and Produkt1ID=@innerIWAN) and 
+											  (ZeitID = @dimZeitID)
+									END
+								ELSE
+									BEGIN
+										PRINT 'lege neu an: '+@mainIWAN+' - '+@innerIWAN
+										insert into [Cubes].[dbo].[CrossSells](Produkt2ID,Produkt1ID,ZeitID,Anzahl)
+										values
+											(@mainIWAN,@innerIWAN, @dimZeitID,1)	
+									END	
 							END
 
+						
 						FETCH NEXT FROM IWAN_CURSOR INTO @innerIWAN
 					END
 				END
