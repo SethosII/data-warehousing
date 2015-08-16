@@ -5,6 +5,21 @@ delete from DimAlter;
 
 insert into [DimAlter](Bezeichnung, Anzahl)
 values(
+	'<20', (select isnull(sum(b.anzahl), 0)
+	from(
+		select a.age, count(a.riskID) 'anzahl' 
+		from(
+			select distinct riskID, DATEDIFF(yy, birthdate, CURRENT_TIMESTAMP) 'age'
+			from [DWH-OnlineShop].dbo.iw_customer
+			group by riskID, birthdate
+		) a
+		group by a.age
+	) b
+	where b.age < 20)
+)
+
+insert into [DimAlter](Bezeichnung, Anzahl)
+values(
 	'>=20 & < 30', (select isnull(sum(b.anzahl), 0)
 	from(
 		select a.age, count(a.riskID) 'anzahl' 
@@ -87,7 +102,7 @@ values(
 
 insert into [DimAlter](Bezeichnung, Anzahl)
 values(
-	'>90', (select isnull(sum(b.anzahl), 0)
+	'>=90', (select isnull(sum(b.anzahl), 0)
 	from(
 		select a.age, count(a.riskID) 'anzahl' 
 		from(
