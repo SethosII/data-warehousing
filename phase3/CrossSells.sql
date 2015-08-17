@@ -1,4 +1,4 @@
-USE [DWH-OnlineShop];
+﻿USE [DWH-OnlineShop]
 
 --Deklaration der Variablen
 DECLARE @orderNo varchar(100);
@@ -24,12 +24,12 @@ SET @crossSellMatches =0;
 
 delete from [Cubes].[dbo].CrossSells
 
---Cursor fuer aue�ere Schleife
+-- Cursor für äußere Schleife
 DECLARE ORDER_CURSOR CURSOR 
   LOCAL STATIC READ_ONLY FORWARD_ONLY
 FOR select distinct orderNo from iw_sales order by orderNo
 
---Durchlaufe aue�ere Schleife
+-- Durchläufe äußere Schleife
 OPEN ORDER_CURSOR
 FETCH NEXT FROM ORDER_CURSOR INTO @orderNo
 WHILE @@FETCH_STATUS = 0
@@ -39,27 +39,27 @@ WHILE @@FETCH_STATUS = 0
 		SET @postingYear = DATEPART (yyyy, CAST(@postingDate as date))
 		SET @postingQuarter = DATEPART (qq, CAST(@postingDate as date))
 		SET @postingMonth = DATEPART (mm, CAST(@postingDate as date))
-		--PRINT 'J: '+ CAST(@postingYear as varchar) + ' Q: '+CAST(@postingQuarter as varchar)+ ' M: '+CAST(@postingMonth as varchar)
+		-- PRINT 'J: '+ CAST(@postingYear as varchar) + ' Q: '+CAST(@postingQuarter as varchar)+ ' M: '+CAST(@postingMonth as varchar)
 		SET @dimZeitID = (select distinct ID from [Cubes].[dbo].DimZeit where Jahr = @postingYear and Monat = @postingMonth and Quartal = @postingQuarter)
 				
-		--Cursor fuer innere Schleife
+		-- Cursor für innere Schleife
 		DECLARE IWAN_CURSOR SCROLL CURSOR 
 		FOR select IWAN from iw_sales where orderNo = @orderNo and type = 2
 		
-		--Durchlaufe innere Schleife
+		-- Durchläufe innere Schleife
 		OPEN IWAN_CURSOR
 		FETCH NEXT FROM IWAN_CURSOR INTO @IWAN
 		WHILE @@FETCH_STATUS = 0
 			BEGIN
 				SET @mainIWAN = @IWAN
-				--PRINT 'mainIWAN: '+@mainIWAN
-				--PRINT 'old: '+@oldMainIWAN
+				-- PRINT 'mainIWAN: '+@mainIWAN
+				-- PRINT 'old: '+@oldMainIWAN
 				IF @oldMainIWAN != @mainIWAN --kleiner bugfix ;)
 				BEGIN
 					FETCH NEXT FROM IWAN_CURSOR INTO @innerIWAN
 					WHILE @@FETCH_STATUS = 0
 					BEGIN
-						--PRINT 'KOMBINATION: '+@mainIWAN+' <---> '+@innerIWAN
+						-- PRINT 'KOMBINATION: '+@mainIWAN+' <---> '+@innerIWAN
 						
 						-- suche nach main-inner-Konstellation
 						SET @crossSellMatches =(select count(*) 
@@ -120,7 +120,7 @@ WHILE @@FETCH_STATUS = 0
 				SET @iwanCounter = @iwanCounter + 1
 				FETCH ABSOLUTE @iwanCounter FROM IWAN_CURSOR INTO @IWAN
 			END
-		--Aufraeuemen
+		-- Aufräumen
 		CLOSE IWAN_CURSOR
 		DEALLOCATE IWAN_CURSOR
 		SET @iwanCounter =0
@@ -128,6 +128,6 @@ WHILE @@FETCH_STATUS = 0
 		FETCH NEXT FROM ORDER_CURSOR INTO @orderNo
 	END
 
---Aufraeumen
+-- Aufräumen
 CLOSE ORDER_CURSOR
 DEALLOCATE ORDER_CURSOR

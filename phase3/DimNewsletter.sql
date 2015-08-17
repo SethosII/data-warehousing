@@ -1,13 +1,15 @@
-USE [DWH-OnlineShop];
+﻿use [DWH-OnlineShop]
 
-INSERT INTO [Cubes].[dbo].[DimNewsletter](Newsletter, Anzahl)
+delete [Cubes].[dbo].[DimNewsletter]
+
+insert into [Cubes].[dbo].[DimNewsletter] (Newsletter, Anzahl)
 
 select
-	CAST(c.newsletter as bit) "Newsletter",
-	COUNT(*) "Anzahl"
+	cast(c.newsletter as bit) 'Newsletter',
+	count(*) 'Anzahl'
 from
 	iw_customer c
-group by c.newsletter
-
+group by
+	c.newsletter
 
 select * from [Cubes].[dbo].[DimNewsletter]

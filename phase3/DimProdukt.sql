@@ -1,13 +1,25 @@
---Query f�gt nur noch neue Produkte ein
-Use Cubes;
+﻿use [DWH-Onlineshop]
 
-select * from DimProdukt;
+-- fügt nur neue Produkte ein
+insert into [Cubes].[dbo].[DimProdukt] (ProduktID, Produktgruppe, Preis, Farbe, Groesse, Bezeichnung)
 
-INSERT into DimProdukt(ProduktID,Produktgruppe,Preis, Farbe, Groesse, Bezeichnung)
-	select IWAN, productGroup, unitPrice, colorDescription, size, description 
-	from
-		[DWH-OnlineShop].[dbo].iw_article
-	where  
-		not exists(select 1 from DimProdukt where dimProdukt.ProduktID = IWAN)
+select
+	IWAN,
+	productGroup,
+	unitPrice,
+	colorDescription,
+	size,
+	description 
+from
+	iw_article
+where  
+	not exists(
+		select
+			1
+		from
+			[Cubes].[dbo].[DimProdukt]
+		where
+			DimProdukt.ProduktID = IWAN
+	)
 
-select * from DimProdukt;
+select * from [Cubes].[dbo].[DimProdukt]

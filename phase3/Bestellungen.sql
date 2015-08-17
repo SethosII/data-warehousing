@@ -1,10 +1,10 @@
-USE [DWH-OnlineShop];
+﻿USE [DWH-OnlineShop]
 
 delete [Cubes].[dbo].[Bestellungen]
 
-insert into [Cubes].[dbo].[Bestellungen] (ZeitID, Geschlecht, AltersgruppeID, Newsletter, ProduktID, Umsatz)
+insert into [Cubes].[dbo].[Bestellungen] (ZeitID, Geschlecht, AltersgruppeID, Newsletter, ProduktID, AnzahlBestellungen, Umsatz)
 
-select dimzeit.ID, Geschlecht, dimaltersgruppe.AltersgruppeID, Newsletter, Produkt, Umsatz
+select dimzeit.ID, Geschlecht, dimaltersgruppe.AltersgruppeID, Newsletter, Produkt, Bestellungen, Umsatz
 from (
 	select
 		*
@@ -40,7 +40,7 @@ from (
 			s.customerNo = c.customerNo and
 			s.IWAN = a.IWAN
 		group by
-			rollup(
+			rollup (
 				DATEPART(yyyy, CAST(s.postingDate as date)),
 				DATEPART(qq, CAST(s.postingDate as date)),
 				DATEPART(mm, CAST(s.postingDate as date)),
@@ -58,9 +58,9 @@ from (
 				a.productGroup,
 				a.IWAN
 			)
-	) notNull
+	) rawData
 	where
-		notNull.Produkt is not null
-) forInsert
+		rawData.Produkt is not null
+) cleanData
 join [Cubes].[dbo].[DimAlter] dimaltersgruppe on dimaltersgruppe.Bezeichnung = Altersgruppe
-join [Cubes].[dbo].[DimZeit] dimzeit on dimzeit.Jahr = forInsert.Jahr and dimzeit.Quartal = forInsert.Quartal and dimzeit.Monat = forInsert.Monat
+join [Cubes].[dbo].[DimZeit] dimzeit on dimzeit.Jahr = cleanData.Jahr and dimzeit.Quartal = cleanData.Quartal and dimzeit.Monat = cleanData.Monat

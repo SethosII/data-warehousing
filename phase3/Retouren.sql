@@ -1,10 +1,10 @@
-USE [DWH-OnlineShop];
+﻿USE [DWH-OnlineShop]
 
 delete [Cubes].[dbo].[Retouren]
 
-insert into [Cubes].[dbo].[Retouren] (ZeitID, Geschlecht, AltersgruppeID, Grund, ProduktID, Umsatz)
+insert into [Cubes].[dbo].[Retouren] (ZeitID, Geschlecht, AltersgruppeID, Grund, ProduktID, AnzahlRetouren, Umsatz)
 
-select dimzeit.ID, Geschlecht, dimaltersgruppe.AltersgruppeID, Grund, Produkt, Umsatz
+select dimzeit.ID, Geschlecht, dimaltersgruppe.AltersgruppeID, Grund, Produkt, Retouren, Umsatz
 from (
 	select
 		*

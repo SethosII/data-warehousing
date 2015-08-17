@@ -1,18 +1,18 @@
+﻿use [DWH-OnlineShop]
 
-delete [Cubes].[dbo].[DimGeschlecht];
+delete [Cubes].[dbo].[DimGeschlecht]
 
-INSERT INTO [Cubes].[dbo].[DimGeschlecht](Geschlecht, Anzahl)
-Values
-(
-'m', (select count(g.riskID) from (select riskID, salutation from iw_customer group by riskID, salutation) g where salutation = 'Herr')
-)
+insert into [Cubes].[dbo].[DimGeschlecht] (Geschlecht, Anzahl)
 
-INSERT INTO [Cubes].[dbo].[DimGeschlecht](Geschlecht, Anzahl)
-Values
-(
-'w', (select count(g.riskID) from (select riskID, salutation from iw_customer group by riskID, salutation) g where salutation = 'Frau')
-)
-
+select
+	case
+		when c.salutation = 'Herr' then 'm'
+		when c.salutation = 'Frau' then 'w'
+	end 'Geschlecht',
+	count(c.riskID) 'Anzahl'
+from
+	iw_customer c
+group by
+	salutation
 
 select * from  [Cubes].[dbo].[DimGeschlecht]
-

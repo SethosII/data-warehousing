@@ -1,11 +1,13 @@
-USE [DWH-OnlineShop]
+﻿use [DWH-OnlineShop]
 
-INSERT INTO [Cubes].[dbo].[DimRetourengrund](Grund, Wert, Anzahl)
+delete [Cubes].[dbo].[DimRetourengrund]
+
+insert into [Cubes].[dbo].[DimRetourengrund] (Grund, Wert, Anzahl)
 
 select
-	r.returnReason "Grund",
-	SUM(CAST(line_amount as decimal (10,2))) "Wert",
-	COUNT(*) "Anzahl"
+	r.returnReason 'Grund',
+	sum(cast(line_amount as decimal (10,2))) 'Wert',
+	count(*) 'Anzahl'
 from
 	iw_return_line r
 where
