@@ -1,0 +1,19 @@
+.reveal .slide-number {
+	right: 1em;
+	bottom: 1em;
+	font-size: 1em;
+	color: #303c40;
+}
+
+#logo {
+	position: absolute;
+	right: 3em;
+	bottom: 1em;
+	width: 6.6em;
+	height: 3em;
+	opacity: 0.5;
+}
+
+#title {
+	 font-size: 2.5em;
+}
