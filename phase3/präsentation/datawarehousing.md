@@ -1,25 +1,25 @@
 ﻿## Agenda
 
-1. Fragestellungen für die Datenanaylse
+1. Fragestellungen für die Datenanalyse
 2. Architektur des Data Warehouse
 3. Auswertung der Cubes
 4. Bewertung der Analyseergebnisse
 
 
 
-## Fragestellungen für die Datenanaylse
+## Fragestellungen für die Datenanalyse
 
 
 
 ### Kunden
 
-- Wer sind die kaufkräftigsten Kundengruppen?
-- Wer sind die aktivsten Kundengruppen?
+- Was sind die kaufkräftigsten Kundengruppen?
+- Was sind die aktivsten Kundengruppen?
 - Wie viel Umsatz generieren die einzelnen Altersgruppen?
 
 ### Produkte
 
-- Was sind die meistverkauftesten Produkte? 
+- Was sind die meistverkauften Produkte? 
 - Wie ist die Umsatzentwicklung bzw. –verteilung?
 - Welche Produkte werden besonders häufig reklamiert und warum?
 
@@ -46,7 +46,7 @@
 
 
 
-### Cube Cross-Sells
+### Cube Cross-Selling
 
 ![](images/cube-cross-sells.png)
 
@@ -112,23 +112,23 @@ Cross-Selling auf Basis von Bestellungen
 
 <!-- .slide: data-background="images/cube-cross-sells-sql.png" -->
 
-## Auswertung des Cubes Cross-Sells
+## Auswertung des Cubes Cross-Selling
 
 
 
-### Cross-Sellinge zwischen Produkten
+### Cross-Selling zwischen Produkten
 
 ![](images/topcross-produkte.png)
 
 
 
-### Zeitliche Entwicklung des Top-Cross-Sells
+### Zeitliche Entwicklung des Top-Cross-Sellings
 
 ![](images/topcrosssell-entwicklung.png)
 
 
 
-### Cross-Sellinge zwischen Produktgruppen
+### Cross-Selling zwischen Produktgruppen
 
 ![](images/topcross-gruppen.png)
 
@@ -147,13 +147,13 @@ Cross-Selling auf Basis von Bestellungen
 	- Spezielle Saisonangebote
 - Frauen zwischen 40 und 60 sind die umsatzstärkste Kundengruppe
 	- Spezielle Angebote/Ausrichtung
-- Retourem entsprechend der Verkaufszahlen
+- Retouren entsprechend der Verkaufszahlen
 	- Keine Ausreißer, die aus dem Sortiment genommen werden sollten
 	- Männer geben weniger zurück als Frauen
 - Retourengründe DONTLIKE, TOBIG, TOSHORT
 	- Bessere Beschreibung von Produkt und Größe
 - Empfehlungen für Produkte
-	- Anzeige von Cross-Sellvorschlägen
+	- Anzeige von Cross-Selling-Vorschlägen
 	- Artikel aus der gleichen Produktgruppe vorschlagen
 - Angebote zu Produktgruppen
 - Generell fehlen Langzeitdaten für weitere Aussagen
