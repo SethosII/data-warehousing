@@ -17,11 +17,15 @@
 - Was sind die aktivsten Kundengruppen?
 - Wie viel Umsatz generieren die einzelnen Altersgruppen?
 
+<br/>
+
 ### Produkte
 
-- Was sind die meistverkauften Produkte? 
+- Was sind die meistverkauften Produkte?
 - Wie ist die Umsatzentwicklung bzw. –verteilung?
 - Welche Produkte werden besonders häufig reklamiert und warum?
+
+<br/>
 
 ### Warenkorbanalyse
 
@@ -140,20 +144,25 @@ Cross-Selling auf Basis von Bestellungen
 
 
 
-### Auswertung der Analyseergebnisse
+### Analyseergebnisse
 
-- Daten für Umsatzentwicklung nicht ausreichen für Empfehlungen
+- Daten für Umsatzentwicklung ohne Auffälligkeiten
 - Kunden kaufen vermehrt Sommerkleidung
-	- Spezielle Saisonangebote
-- Frauen zwischen 40 und 60 sind die umsatzstärkste Kundengruppe
-	- Spezielle Angebote/Ausrichtung
-- Retouren entsprechend der Verkaufszahlen
-	- Keine Ausreißer, die aus dem Sortiment genommen werden sollten
-	- Männer geben weniger zurück als Frauen
-- Retourengründe DONTLIKE, TOBIG, TOSHORT
-	- Bessere Beschreibung von Produkt und Größe
-- Empfehlungen für Produkte
-	- Anzeige von Cross-Selling-Vorschlägen
-	- Artikel aus der gleichen Produktgruppe vorschlagen
-- Angebote zu Produktgruppen
+- Frauen zwischen 40 und 60 sind umsatzstärkste Kundengruppe
+- Retouren korrelieren mit Verkaufszahlen
+- Retourengründe meist DONTLIKE, TOBIG, TOSHORT
 - Generell fehlen Langzeitdaten für weitere Aussagen
+
+
+
+### Empfehlungen
+
+- Daten für Umsatzentwicklung nicht ausreichend für Empfehlungen
+- Saisonangebote
+- Ausrichtung auf Zielgruppe
+- Keine Retourentreiber, die aus dem Sortiment genommen werden sollten
+- Männer geben weniger zurück als Frauen
+- Bessere Beschreibung von Produkt und Größe
+- Artikel aus der gleichen Produktgruppe vorschlagen
+- Anzeige von Cross-Selling-Vorschlägen
+- Angebote zu Produktgruppen
