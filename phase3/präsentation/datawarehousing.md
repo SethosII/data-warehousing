@@ -150,6 +150,7 @@ Cross-Selling auf Basis von Bestellungen
 - Kunden kaufen vermehrt Sommerkleidung
 - Frauen zwischen 40 und 60 sind umsatzstärkste Kundengruppe
 - Retouren korrelieren mit Verkaufszahlen
+- Männer geben weniger zurück als Frauen
 - Retourengründe meist DONTLIKE, TOBIG, TOSHORT
 - Generell fehlen Langzeitdaten für weitere Aussagen
 
@@ -161,7 +162,6 @@ Cross-Selling auf Basis von Bestellungen
 - Saisonangebote
 - Ausrichtung auf Zielgruppe
 - Keine Retourentreiber, die aus dem Sortiment genommen werden sollten
-- Männer geben weniger zurück als Frauen
 - Bessere Beschreibung von Produkt und Größe
 - Artikel aus der gleichen Produktgruppe vorschlagen
 - Anzeige von Cross-Selling-Vorschlägen
