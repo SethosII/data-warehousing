@@ -21,7 +21,7 @@
 
 ### Produkte
 
-- Was sind die meistverkauften Produkte?
+- Was sind die am häufigsten gekauften Produkte?
 - Wie ist die Umsatzentwicklung bzw. –verteilung?
 - Welche Produkte werden besonders häufig reklamiert und warum?
 
