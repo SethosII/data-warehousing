@@ -42,11 +42,19 @@
 
 ![](images/cube-bestellungen.png)
 
+Note:
+
+Untersuchung nach fünf Dimensionen
+
 
 
 ### Cube Retouren
 
 ![](images/cube-retouren.png)
+
+Notes:
+
+ähnlich Bestellungen
 
 
 
@@ -70,11 +78,23 @@ Cross-Selling auf Basis von Bestellungen
 
 ![](images/umsatzentwicklung.png)
 
+Note:
+
+keine Trend oder starke Monate erkennbar
+
+Umastz korreliert mit Anzahl der Bestellungen
+
 
 
 ### Meistverkaufte Produkte
 
 ![](images/topprodukt-anzahl.png)
+
+Note:
+
+hauptsächlich Sommerbekleidung
+
+keine großen Abstände
 
 
 
@@ -82,11 +102,27 @@ Cross-Selling auf Basis von Bestellungen
 
 ![](images/topprodukt-umsatz.png)
 
+Note:
+
+keine spezielle Produktgruppe
+
+Product M5 hat großen Abstand
+
+Umastz und Anzahl der Bestellungen korrelieren nicht
+
 
 
 ### Umsatzstärkste Kundengruppe
 
 ![](images/topkunden.png)
+
+Note:
+
+40-50 w mit Newsletter mit Abstand
+
+Frauen machen mehr Umsatz als Männer (sind auch echt mehr)
+
+Umastz korreliert mit Anzahl der Bestellungen
 
 
 
@@ -100,17 +136,33 @@ Cross-Selling auf Basis von Bestellungen
 
 ![](images/topretouren-anzahl.png)
 
+Note:
+
+hauptsächlich Bikinis
+
+keine großen Abstände
+
 
 
 ### Retourenstärkste Kundengruppe
 
 ![](images/downkunden.png)
 
+Note:
+
+40-50 w (kaufen auch am meisten
+
+korreliert generell mit Bestellungen
+
 
 
 ### Häufigster Retourengrund
 
 ![](images/topretourengrund.png)
+
+Note:
+
+DONTLIKE, TOBIG, TOSHORT, OTHER an der Spitze
 
 
 
@@ -124,6 +176,12 @@ Cross-Selling auf Basis von Bestellungen
 
 ![](images/topcross-produkte.png)
 
+Note:
+
+ähnliche Proukte werden zusammengekauft
+
+hauptsächlich Sommersachen
+
 
 
 ### Zeitliche Entwicklung des Top-Cross-Sellings
@@ -135,6 +193,10 @@ Cross-Selling auf Basis von Bestellungen
 ### Cross-Selling zwischen Produktgruppen
 
 ![](images/topcross-gruppen.png)
+
+Note:
+
+häufig aus der selben Produktgruppe mehrere Produkte zusammengekauft
 
 
 
