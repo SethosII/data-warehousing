@@ -3,7 +3,7 @@
 1. Fragestellungen für die Datenanalyse
 2. Architektur des Data Warehouse
 3. Auswertung der Cubes
-4. Bewertung der Analyseergebnisse
+4. Auswertung der Analyseergebnisse
 
 
 
