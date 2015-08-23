@@ -230,5 +230,6 @@ häufig aus der selben Produktgruppe mehrere Produkte zusammengekauft
 - Angebote zu Produktgruppen
 
 
+
 ## Fragen?
 ![](images/extrapolating.png)
