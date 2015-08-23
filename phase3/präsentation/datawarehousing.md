@@ -228,3 +228,7 @@ häufig aus der selben Produktgruppe mehrere Produkte zusammengekauft
 - Artikel aus der gleichen Produktgruppe vorschlagen
 - Anzeige von Cross-Selling-Vorschlägen
 - Angebote zu Produktgruppen
+
+
+## Fragen?
+![](images/extrapolating.png)
