@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 	<head>
 		<meta charset="utf-8">
@@ -39,7 +39,7 @@
 		<div class="reveal">
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="images/opal2latex-aktuell-transparent.png">
+				<section>
 					<h1 id="title">Data Warehousing</h1>
 					<h2>Phase 3: Auswertungen und Visualisierung</h2>
 					<p>Leipzig, 24.08.2015</p>
@@ -127,11 +127,6 @@
 				minScale: 0.2,
 				maxScale: 2,
 
-				math: {
-					mathjax: '../MathJax-2.5.1/MathJax.js',
-					config: 'TeX-AMS-MML_SVG'//'TeX-AMS-MML_HTMLorMML',
-				},
-
 				// Optional reveal.js plugins
 				dependencies: [
 					// Cross-browser shim that fully implements classList
@@ -139,16 +134,8 @@
 					// Interpret Markdown in <section> elements
 					{ src: '../reveal.js-3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: '../reveal.js-3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					// Syntax highlight for <code> elements
-					// Default but not working on external markdown:
-					// { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: '../reveal.js-3.0.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					// Zoom in and out with Alt+click
-					{ src: '../reveal.js-3.0.0/plugin/zoom-js/zoom.js', async: true },
 					// Speaker notes
 					{ src: '../reveal.js-3.0.0/plugin/notes/notes.js', async: true },
-					// MathJax
-					{ src: '../reveal.js-3.0.0/plugin/math/math.js', async: true },
 					// Jump
 					{ src: '../reveal.js-3.0.0/plugin/jump/jump.js', async: true }
 				]
