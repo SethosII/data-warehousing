@@ -52,7 +52,7 @@ Untersuchung nach fünf Dimensionen
 
 ![](images/cube-retouren.png)
 
-Notes:
+Note:
 
 ähnlich Bestellungen
 
